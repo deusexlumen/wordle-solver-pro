@@ -13,7 +13,7 @@
   - TypeScript-konforme `//`-BUXE-Header (keine `#`-Header in TS/TSX).
 - **Build/Qualität:**
   - `pnpm build` ✅
-  - `pnpm test` ✅ (35/35 Tests)
+  - `pnpm test` ✅ (41/41 Tests)
   - `pnpm lint` ✅ (ESLint 9 Flat Config, `scripts/` ignoriert)
 - **Erweiterung Quordle (2026-06-12):**
   - `lib/gameState.ts` mit `calculateGameState` erstellt, damit mehrere Boards ohne Hook-Regel-Verletzung berechnet werden können.
@@ -39,6 +39,17 @@
   - `components/kakuro/KakuroBoard.tsx` + `app/kakuro/page.tsx` mit 5×5-Beispiel.
   - Navigation um Kakuro erweitert.
   - 6 Unit-Tests für Kakuro.
-- **Offen/TODO:**
-  - Weitere Solver: Connections.
+- **Erweiterung Connections (2026-06-13):**
+  - `/api/gemini/analyze-connections` Route mit Gemini-Gruppierung.
+  - `lib/connections.ts` + `components/connections/ConnectionsBoard.tsx` + `app/connections/page.tsx`.
+  - Navigation um Connections erweitert.
+  - 6 Unit-Tests für Parser und Validierung.
+- **Offen/TODO (Ideen-Pool):**
+  - Math Trivia Quiz (zufällige Rechenaufgaben, Schwierigkeitsstufen, Streak-Zähler).
+  - Hangman Solver (Wortraten mit Buchstaben-Häufigkeit).
+  - Crossword Helper (Muster-Matching gegen Wortliste).
+  - Countdown Zahlenrunde (Solver für das britische TV-Rätsel).
+  - Cryptoquote / Substitutions-Chiffre-Assistent.
+  - 2048-Tippgeber oder automatischer Spieler.
+  - Brainfuck-/Code-Puzzle-Generator für Anfänger.
   - Optional: tatsächliche Gemini-OCR mit echtem API-Key testen.

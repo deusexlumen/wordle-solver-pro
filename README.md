@@ -31,6 +31,10 @@ Ein mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme
   - Summen-Rätsel-Assistent mit Constraint Propagation und Backtracking.
   - 5×5-Beispiel-Rätsel inklusive.
 
+- **Connections Assistant**
+  - Teilt 16 Wörter per Gemini-API in 4 thematische Gruppen ein.
+  - Eingabe als Text oder kommagetrennte Liste.
+
 - **Gemini OCR**
   - Route `/api/gemini/analyze-screenshot` analysiert hochgeladene Screenshots.
   - Retry/Backoff mit `gemini-2.5-flash-lite` als Primary und `gemini-2.5-flash` als Fallback.
@@ -70,19 +74,22 @@ pnpm dev
 
 ```
 app/
-  api/gemini/analyze-screenshot/  # Gemini OCR API
-  kakuro/                         # Kakuro UI
-  mastermind/                     # Mastermind UI
-  nonogram/                       # Nonogram UI
-  quordle/                        # Quordle UI
-  sudoku/                         # Sudoku UI
-  page.tsx                        # Wordle UI
+  api/gemini/analyze-screenshot/     # Gemini OCR API
+  api/gemini/analyze-connections/  # Gemini Connections API
+  connections/                     # Connections UI
+  kakuro/                          # Kakuro UI
+  mastermind/                      # Mastermind UI
+  nonogram/                        # Nonogram UI
+  quordle/                         # Quordle UI
+  sudoku/                          # Sudoku UI
+  page.tsx                         # Wordle UI
 components/
-  kakuro/                         # KakuroBoard
-  mastermind/                     # MastermindBoard
-  nonogram/                       # NonogramBoard
-  sudoku/                         # SudokuBoard
-  wordle/                         # Wordle-Komponenten
+  connections/                     # ConnectionsBoard
+  kakuro/                          # KakuroBoard
+  mastermind/                      # MastermindBoard
+  nonogram/                        # NonogramBoard
+  sudoku/                          # SudokuBoard
+  wordle/                          # Wordle-Komponenten
 hooks/
   useWordle.ts
   useQuordle.ts
@@ -102,7 +109,7 @@ tests/                            # Vitest-Tests
 pnpm test
 ```
 
-Aktuell sind **35 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram-, Mastermind- und Kakuro-Logik.
+Aktuell sind **41 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram-, Mastermind-, Kakuro- und Connections-Logik.
 
 ## Umgebungsvariablen
 

@@ -9,6 +9,7 @@ const ROUTES = [
   { href: "/nonogram", label: "Nonogram" },
   { href: "/mastermind", label: "Mastermind" },
   { href: "/kakuro", label: "Kakuro" },
+  { href: "/connections", label: "Connections" },
 ];
 
 export function Navigation({ current }: { current: string }) {
