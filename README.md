@@ -35,6 +35,10 @@ Ein mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme
   - Teilt 16 Wörter per Gemini-API in 4 thematische Gruppen ein.
   - Eingabe als Text oder kommagetrennte Liste.
 
+- **Math Trivia Quiz**
+  - Rechenaufgaben mit Schwierigkeitsstufen (leicht, mittel, schwer).
+  - Punkte, Streak und Erfolgsquote.
+
 - **Gemini OCR**
   - Route `/api/gemini/analyze-screenshot` analysiert hochgeladene Screenshots.
   - Retry/Backoff mit `gemini-2.5-flash-lite` als Primary und `gemini-2.5-flash` als Fallback.
@@ -79,6 +83,7 @@ app/
   connections/                     # Connections UI
   kakuro/                          # Kakuro UI
   mastermind/                      # Mastermind UI
+  math-quiz/                       # Math Quiz UI
   nonogram/                        # Nonogram UI
   quordle/                         # Quordle UI
   sudoku/                          # Sudoku UI
@@ -87,6 +92,7 @@ components/
   connections/                     # ConnectionsBoard
   kakuro/                          # KakuroBoard
   mastermind/                      # MastermindBoard
+  math-quiz/                       # MathQuizBoard
   nonogram/                        # NonogramBoard
   sudoku/                          # SudokuBoard
   wordle/                          # Wordle-Komponenten
@@ -109,7 +115,7 @@ tests/                            # Vitest-Tests
 pnpm test
 ```
 
-Aktuell sind **41 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram-, Mastermind-, Kakuro- und Connections-Logik.
+Aktuell sind **48 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram-, Mastermind-, Kakuro-, Connections- und Math-Quiz-Logik.
 
 ## Umgebungsvariablen
 

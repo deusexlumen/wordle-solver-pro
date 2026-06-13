@@ -10,6 +10,7 @@ const ROUTES = [
   { href: "/mastermind", label: "Mastermind" },
   { href: "/kakuro", label: "Kakuro" },
   { href: "/connections", label: "Connections" },
+  { href: "/math-quiz", label: "Math Quiz" },
 ];
 
 export function Navigation({ current }: { current: string }) {

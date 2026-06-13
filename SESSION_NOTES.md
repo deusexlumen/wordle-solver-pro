@@ -13,7 +13,7 @@
   - TypeScript-konforme `//`-BUXE-Header (keine `#`-Header in TS/TSX).
 - **Build/Qualität:**
   - `pnpm build` ✅
-  - `pnpm test` ✅ (41/41 Tests)
+  - `pnpm test` ✅ (48/48 Tests)
   - `pnpm lint` ✅ (ESLint 9 Flat Config, `scripts/` ignoriert)
 - **Erweiterung Quordle (2026-06-12):**
   - `lib/gameState.ts` mit `calculateGameState` erstellt, damit mehrere Boards ohne Hook-Regel-Verletzung berechnet werden können.
@@ -44,8 +44,12 @@
   - `lib/connections.ts` + `components/connections/ConnectionsBoard.tsx` + `app/connections/page.tsx`.
   - Navigation um Connections erweitert.
   - 6 Unit-Tests für Parser und Validierung.
+- **Erweiterung Math Trivia Quiz (2026-06-13):**
+  - `lib/mathQuiz.ts` mit Aufgaben-Generator für +, −, ×, ÷ und Punkte-/Streak-Logik.
+  - `components/math-quiz/MathQuizBoard.tsx` + `app/math-quiz/page.tsx`.
+  - Navigation um Math Quiz erweitert.
+  - 7 Unit-Tests für Generator und Punkteberechnung.
 - **Offen/TODO (Ideen-Pool):**
-  - Math Trivia Quiz (zufällige Rechenaufgaben, Schwierigkeitsstufen, Streak-Zähler).
   - Hangman Solver (Wortraten mit Buchstaben-Häufigkeit).
   - Crossword Helper (Muster-Matching gegen Wortliste).
   - Countdown Zahlenrunde (Solver für das britische TV-Rätsel).
