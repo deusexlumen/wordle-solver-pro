@@ -9,7 +9,7 @@ import { Scorecard } from "@/components/wordle/Scorecard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tile } from "@/components/wordle/Tile";
-import Link from "next/link";
+import { Navigation } from "@/components/Navigation";
 
 const FEEDBACK_CYCLE: ("" | "green" | "yellow" | "gray")[] = [
   "",
@@ -50,26 +50,7 @@ export default function QuordlePage() {
     <main className="mx-auto max-w-6xl p-4 space-y-6">
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Quordle Solver PRO</h1>
-        <nav className="flex gap-4">
-          <Link
-            href="/"
-            className="rounded-lg border border-zinc-700 px-3 py-1 text-sm hover:bg-zinc-800"
-          >
-            Wordle
-          </Link>
-          <Link
-            href="/sudoku"
-            className="rounded-lg border border-zinc-700 px-3 py-1 text-sm hover:bg-zinc-800"
-          >
-            Sudoku
-          </Link>
-          <Link
-            href="/nonogram"
-            className="rounded-lg border border-zinc-700 px-3 py-1 text-sm hover:bg-zinc-800"
-          >
-            Nonogram
-          </Link>
-        </nav>
+        <Navigation current="/quordle" />
       </header>
 
       {/* Gemeinsame Eingabezeile */}

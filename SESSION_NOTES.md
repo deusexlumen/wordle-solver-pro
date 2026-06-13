@@ -13,7 +13,7 @@
   - TypeScript-konforme `//`-BUXE-Header (keine `#`-Header in TS/TSX).
 - **Build/Qualität:**
   - `pnpm build` ✅
-  - `pnpm test` ✅ (22/22 Tests)
+  - `pnpm test` ✅ (29/29 Tests)
   - `pnpm lint` ✅ (ESLint 9 Flat Config, `scripts/` ignoriert)
 - **Erweiterung Quordle (2026-06-12):**
   - `lib/gameState.ts` mit `calculateGameState` erstellt, damit mehrere Boards ohne Hook-Regel-Verletzung berechnet werden können.
@@ -29,6 +29,11 @@
   - `lib/nonogram.ts` mit Zeilenmuster-Generator, Constraint Propagation und Backtracking implementiert.
   - `components/nonogram/NonogramBoard.tsx` + `app/nonogram/page.tsx` für interaktive Eingabe der Zeilen-/Spaltenhinweise.
   - 6 Unit-Tests für Nonogram; Beispiel-Rätsel validiert.
+- **Erweiterung Mastermind (2026-06-13):**
+  - `lib/mastermind.ts` mit Code-Generator, Feedback-Berechnung, Filterung und Minimax-Vorschlag.
+  - `components/mastermind/MastermindBoard.tsx` + `app/mastermind/page.tsx` für interaktives Code-Knacken.
+  - Zentrale `components/Navigation.tsx` für alle Solver-Routen.
+  - 7 Unit-Tests für Mastermind.
 - **Offen/TODO:**
-  - Weitere Solver: Mastermind, Kakuro, Connections.
+  - Weitere Solver: Kakuro, Connections.
   - Optional: tatsächliche Gemini-OCR mit echtem API-Key testen.

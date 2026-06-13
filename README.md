@@ -22,6 +22,11 @@ Ein mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme
   - Zeilen-/Spaltenbasierte Constraint Propagation plus Backtracking.
   - Eingabe der Hinweise als kommagetrennte Listen.
 
+- **Mastermind Solver**
+  - Code-Knacker für 6 Farben × 4 Positionen.
+  - Minimax-Heuristik für optimale Vorschläge.
+  - Manuelle Feedback-Eingabe (schwarz/weiß).
+
 - **Gemini OCR**
   - Route `/api/gemini/analyze-screenshot` analysiert hochgeladene Screenshots.
   - Retry/Backoff mit `gemini-2.5-flash-lite` als Primary und `gemini-2.5-flash` als Fallback.
@@ -62,11 +67,13 @@ pnpm dev
 ```
 app/
   api/gemini/analyze-screenshot/  # Gemini OCR API
+  mastermind/                     # Mastermind UI
   nonogram/                       # Nonogram UI
   quordle/                        # Quordle UI
   sudoku/                         # Sudoku UI
   page.tsx                        # Wordle UI
 components/
+  mastermind/                     # MastermindBoard
   nonogram/                       # NonogramBoard
   sudoku/                         # SudokuBoard
   wordle/                         # Wordle-Komponenten
@@ -89,7 +96,7 @@ tests/                            # Vitest-Tests
 pnpm test
 ```
 
-Aktuell sind **22 Tests** enthalten für Wordle-, Quordle-, Sudoku- und Nonogram-Logik.
+Aktuell sind **29 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram- und Mastermind-Logik.
 
 ## Umgebungsvariablen
 
