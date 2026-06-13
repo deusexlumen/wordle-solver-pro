@@ -13,7 +13,7 @@
   - TypeScript-konforme `//`-BUXE-Header (keine `#`-Header in TS/TSX).
 - **Build/Qualität:**
   - `pnpm build` ✅
-  - `pnpm test` ✅ (29/29 Tests)
+  - `pnpm test` ✅ (35/35 Tests)
   - `pnpm lint` ✅ (ESLint 9 Flat Config, `scripts/` ignoriert)
 - **Erweiterung Quordle (2026-06-12):**
   - `lib/gameState.ts` mit `calculateGameState` erstellt, damit mehrere Boards ohne Hook-Regel-Verletzung berechnet werden können.
@@ -34,6 +34,11 @@
   - `components/mastermind/MastermindBoard.tsx` + `app/mastermind/page.tsx` für interaktives Code-Knacken.
   - Zentrale `components/Navigation.tsx` für alle Solver-Routen.
   - 7 Unit-Tests für Mastermind.
+- **Erweiterung Kakuro (2026-06-13):**
+  - `lib/kakuro.ts` mit Summen-Kombinationsgenerator, Run-Erkennung, Constraint Propagation und Backtracking.
+  - `components/kakuro/KakuroBoard.tsx` + `app/kakuro/page.tsx` mit 5×5-Beispiel.
+  - Navigation um Kakuro erweitert.
+  - 6 Unit-Tests für Kakuro.
 - **Offen/TODO:**
-  - Weitere Solver: Kakuro, Connections.
+  - Weitere Solver: Connections.
   - Optional: tatsächliche Gemini-OCR mit echtem API-Key testen.

@@ -27,6 +27,10 @@ Ein mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme
   - Minimax-Heuristik für optimale Vorschläge.
   - Manuelle Feedback-Eingabe (schwarz/weiß).
 
+- **Kakuro Solver**
+  - Summen-Rätsel-Assistent mit Constraint Propagation und Backtracking.
+  - 5×5-Beispiel-Rätsel inklusive.
+
 - **Gemini OCR**
   - Route `/api/gemini/analyze-screenshot` analysiert hochgeladene Screenshots.
   - Retry/Backoff mit `gemini-2.5-flash-lite` als Primary und `gemini-2.5-flash` als Fallback.
@@ -67,12 +71,14 @@ pnpm dev
 ```
 app/
   api/gemini/analyze-screenshot/  # Gemini OCR API
+  kakuro/                         # Kakuro UI
   mastermind/                     # Mastermind UI
   nonogram/                       # Nonogram UI
   quordle/                        # Quordle UI
   sudoku/                         # Sudoku UI
   page.tsx                        # Wordle UI
 components/
+  kakuro/                         # KakuroBoard
   mastermind/                     # MastermindBoard
   nonogram/                       # NonogramBoard
   sudoku/                         # SudokuBoard
@@ -96,7 +102,7 @@ tests/                            # Vitest-Tests
 pnpm test
 ```
 
-Aktuell sind **29 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram- und Mastermind-Logik.
+Aktuell sind **35 Tests** enthalten für Wordle-, Quordle-, Sudoku-, Nonogram-, Mastermind- und Kakuro-Logik.
 
 ## Umgebungsvariablen
 

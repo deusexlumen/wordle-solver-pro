@@ -8,6 +8,7 @@ const ROUTES = [
   { href: "/sudoku", label: "Sudoku" },
   { href: "/nonogram", label: "Nonogram" },
   { href: "/mastermind", label: "Mastermind" },
+  { href: "/kakuro", label: "Kakuro" },
 ];
 
 export function Navigation({ current }: { current: string }) {
