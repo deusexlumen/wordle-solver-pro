@@ -2,6 +2,8 @@
   "name": "wordle-solver-pro",
   "version": "0.1.0",
   "private": true,
+  "description": "Mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme mit Gemini-OCR.",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "pnpm build:words && next build",

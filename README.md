@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wordle Solver PRO
 
-## Getting Started
+Ein mathematischer Rätsel-Assistent für Wordle, Quordle, Sudoku und Nonogramme — gebaut mit Next.js 16, React 19 und TypeScript. Die Solver laufen komplett clientseitig; optional kannst du Screenshots per Gemini-OCR analysieren lassen.
 
-First, run the development server:
+## Features
+
+- **Wordle Solver**
+  - Filtert Kandidaten anhand von grün/gelb/grau-Feedback.
+  - Entropie-basierte Vorschläge, die den Kandidatenraum maximal verkleinern.
+  - Pattern-Trap-Scanner mit Eliminator-Wörtern.
+  - Screenshot-Upload für Gemini-OCR-Analyse.
+
+- **Quordle Solver**
+  - Verwaltet vier Boards parallel mit gemeinsamer Eingabezeile.
+  - Kombinierter Vorschlag, der alle Boards gleichzeitig voranbringt.
+
+- **Sudoku Solver**
+  - Backtracking mit Constraint Propagation (Single-Candidate) und MRV-Heuristik.
+  - Interaktives 9×9-Grid.
+
+- **Nonogram Solver**
+  - Zeilen-/Spaltenbasierte Constraint Propagation plus Backtracking.
+  - Eingabe der Hinweise als kommagetrennte Listen.
+
+- **Gemini OCR**
+  - Route `/api/gemini/analyze-screenshot` analysiert hochgeladene Screenshots.
+  - Retry/Backoff mit `gemini-2.5-flash-lite` als Primary und `gemini-2.5-flash` als Fallback.
+
+## Tech-Stack
+
+- **Framework:** Next.js 16.2.9 (App Router)
+- **UI:** React 19.2.4, Tailwind CSS 4.3.0, shadcn/ui
+- **Sprache:** TypeScript 5.9.3
+- **Tests:** Vitest 4.1.8, jsdom, React Testing Library
+- **Linting:** ESLint 9 Flat Config
+- **OCR:** `@google/genai`
+- **Package-Manager:** pnpm
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+pnpm build:words   # Baut public/words.json aus word-list
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öffne [http://localhost:3000](http://localhost:3000) im Browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verfügbare Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | Beschreibung |
+|--------|--------------|
+| `pnpm dev` | Startet den Dev-Server |
+| `pnpm build` | Baut Wortliste + Produktionsbuild |
+| `pnpm build:words` | Generiert `public/words.json` |
+| `pnpm start` | Startet den Produktionsserver |
+| `pnpm test` | Führt Vitest-Tests aus |
+| `pnpm lint` | Führt ESLint über das Projekt aus |
 
-## Learn More
+## Projektstruktur (Auszug)
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  api/gemini/analyze-screenshot/  # Gemini OCR API
+  nonogram/                       # Nonogram UI
+  quordle/                        # Quordle UI
+  sudoku/                         # Sudoku UI
+  page.tsx                        # Wordle UI
+components/
+  nonogram/                       # NonogramBoard
+  sudoku/                         # SudokuBoard
+  wordle/                         # Wordle-Komponenten
+hooks/
+  useWordle.ts
+  useQuordle.ts
+lib/
+  solver.ts                       # Wordle-Logik
+  gameState.ts                    # Quordle-State-Hilfen
+  sudoku.ts                       # Sudoku-Engine
+  nonogram.ts                     # Nonogram-Engine
+  gemini.ts                       # Gemini-Client
+  words.ts                        # Wortlisten-Utils
+tests/                            # Vitest-Tests
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm test
+```
 
-## Deploy on Vercel
+Aktuell sind **22 Tests** enthalten für Wordle-, Quordle-, Sudoku- und Nonogram-Logik.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Umgebungsvariablen
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Für die Gemini-OCR-Funktion wird ein Google API-Key benötigt:
+
+```bash
+cp .env.local.example .env.local
+# GOOGLE_API_KEY=dein-key-hier-einfügen
+```
+
+Ohne API-Key funktionieren alle Solver weiterhin; nur der Screenshot-Upload schlägt fehl.
+
+## Deployment
+
+Die App wird als statischer Export gebaut (`output: 'export'` in `next.config.ts`) und kann auf jedem Static-Hoster deployed werden.
+
+```bash
+pnpm build
+```
+
+## Lizenz
+
+MIT
